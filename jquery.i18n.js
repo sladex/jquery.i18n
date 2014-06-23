@@ -1,5 +1,5 @@
 /*
- * jQuery Internationalization library | 2014-04-30
+ * jQuery Internationalization library | 2014-06-23
  * Copyright (c) 2014 sladex | MIT License
  * https://github.com/sladex/jquery.i18n
  */
@@ -16,7 +16,7 @@
     dic[defaultLang] = {};
 
     // store default data
-    $locEls.forEach(function(el) {
+    $.each($locEls, function(index, el) {
         var $el = $(el),
             key = $el.data('i18n'),
             isImg = $el.is('img'),
@@ -49,7 +49,7 @@
         if (!dic[lang]) {
             return;
         }
-        $locEls.forEach(function(el) {
+        $.each($locEls, function(index, el) {
             var $el = $(el),
                 key = $el.data('i18n'),
                 str = dic[lang][key];
@@ -66,7 +66,7 @@
                 $el.html(str);
             }
         });
-        $locClassNames.forEach(function(el) {
+        $.each($locClassNames, function(index, el) {
             var $el = $(el),
                 className = $el.data('i18n-class');
             if (className) {
